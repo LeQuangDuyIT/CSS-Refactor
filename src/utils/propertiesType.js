@@ -63,13 +63,14 @@ const propertiesType = [
       'text-align',
       'line-height',
       'text-decoration',
-      'text-transform'
+      'text-transform',
+      'list-style'
     ]
   },
   {
     type: 'animation',
     order: 5,
-    list: ['cursor', 'tranform', 'transition', 'animation']
+    list: ['cursor', 'transform', 'transition', 'animation']
   }
 ];
 
