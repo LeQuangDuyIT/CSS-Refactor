@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import MonacoEditor from 'react-monaco-editor';
 import ControlSpace from './ControlSpace/ControlSpace';
 import CodeEditor from '~/components/CodeEditor';
 import { MainContext } from '~/context/MainProvider';
@@ -14,7 +15,7 @@ const WorkSpace = () => {
       <div className="flex gap-2 p-8 h-full overflow-hidden">
         {/* InputSpace */}
         <div className="flex basis-5/12 min-h-full max-h-full overflow-auto">
-          <CodeEditor code={inputCode} onCodeChange={e => updateInput(e.target.value)} />
+          <CodeEditor code={inputCode} onCodeChange={value => updateInput(value)} />
         </div>
         {/* ControlSpace */}
         <div className="basis-2/12">
@@ -22,7 +23,7 @@ const WorkSpace = () => {
         </div>
         {/* OutputSpace */}
         <div className="flex basis-5/12 min-h-full max-h-full overflow-auto">
-          <CodeEditor code={codeString} readOnly/>
+          <CodeEditor code={codeString} />
         </div>
       </div>
     </div>

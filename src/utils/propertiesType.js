@@ -50,7 +50,14 @@ const propertiesType = [
   {
     type: 'color',
     order: 3,
-    list: ['color', 'background-color', 'background']
+    list: [
+      'color',
+      'background-color',
+      'background',
+      'background-image',
+      'background-position',
+      'background-size'
+    ]
   },
   {
     type: 'text',

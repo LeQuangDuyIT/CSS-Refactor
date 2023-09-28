@@ -1,34 +1,43 @@
 import PropTypes from 'prop-types';
+import MonacoEditor from 'react-monaco-editor';
 
-const CodeEditor = ({ code = '', onCodeChange, readOnly = false }) => {
-  const orderColumnValue = code
-    .split('\n')
-    .map((_, index) => `${index + 1}`)
-    .join('\n');
+const CodeEditor = ({ code = '', onCodeChange }) => {
+  const options = {
+    autoIndent: 'full',
+    contextmenu: true,
+    fontFamily: 'monospace',
+    fontSize: 14,
+    lineHeight: 24,
+    hideCursorInOverviewRuler: true,
+    matchBrackets: 'always',
+    minimap: {
+      enabled: true
+    },
+    scrollbar: {
+      horizontalSliderSize: 4,
+      verticalSliderSize: 18
+    },
+    selectOnLineNumbers: true,
+    roundedSelection: false,
+    readOnly: false,
+    cursorStyle: 'line',
+    automaticLayout: true
+  };
 
   return (
-    <>
-      <textarea
-        readOnly
-        value={orderColumnValue}
-        rows={orderColumnValue.split('\n').length + 1}
-        className="basis-[5%] min-w-[48px] min-h-full overflow-hidden resize-none w-full pl-2.5 py-4 bg-gray-400 outline-none text-center"
-      ></textarea>
-      <textarea
-        readOnly={readOnly}
-        value={code}
-        onChange={onCodeChange}
-        rows={code.split('\n').length + 1}
-        className="flex-grow min-h-full overflow-auto resize-none w-full pl-2.5 py-4 outline-none bg-gray-300 font-mono"
-      ></textarea>
-    </>
+    <MonacoEditor
+      value={code}
+      onChange={onCodeChange}
+      height="full"
+      options={options}
+      // theme="hc-black"
+    />
   );
 };
 
 CodeEditor.propTypes = {
   code: PropTypes.string,
-  onCodeChange: PropTypes.func,
-  readOnly: PropTypes.bool
+  onCodeChange: PropTypes.func
 };
 
 export default CodeEditor;

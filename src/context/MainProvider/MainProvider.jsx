@@ -60,7 +60,7 @@ const MainProvider = ({ children }) => {
   };
 
   const codeString = outputCode.reduce((string, item) => {
-    const selectorBlock = `${item.selector} {`;
+    const selectorBlock = `${item.selector.replace(/\r/g, '')} {`;
     const propertiesBlock = item.properties.map(prop => `    ${prop.trim()}`).join('\n');
     const closingBracket = '}';
     const mergeString = `${string}
