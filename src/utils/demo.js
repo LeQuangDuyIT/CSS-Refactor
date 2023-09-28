@@ -1,4 +1,4 @@
-const demoCssCode = `.code__demo {
+const demoCssCode = `.code__demo--class {
   min-width: 124px;
   height: 34px;
   display: flex;
@@ -18,6 +18,15 @@ const demoCssCode = `.code__demo {
   position: absolute;
   transform: translate(-50%, -50%);
   outline: none;
-}`
+}
+#code__demo--id {
+  color: var(--text-color);
+  border: 1px solid black;
+  font-size: 1rem;
+  width: 100%;
+  display: block
+  margin-bottom: 16px;
+  background: white
+}`;
 
-export default demoCssCode
+export default demoCssCode;
