@@ -28,6 +28,7 @@ const propertiesType = [
       'height',
       'min-width',
       'max-width',
+      'border-radius',
       'padding',
       'padding-top',
       'padding-bottom',

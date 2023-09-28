@@ -2,11 +2,12 @@ import { useState, createContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import propertiesType from '~/utils/propertiesType';
+import demoCssCode from '~/utils/demo';
 
 export const MainContext = createContext();
 
 const MainProvider = ({ children }) => {
-  const [inputCode, setInputCode] = useState('');
+  const [inputCode, setInputCode] = useState(demoCssCode);
   const [outputCode, setOutputCode] = useState([]);
 
   useEffect(() => {
@@ -60,7 +61,7 @@ const MainProvider = ({ children }) => {
   };
 
   const codeString = outputCode.reduce((string, item) => {
-    const selectorBlock = `${item.selector.replace(/\r/g, '')} {`;
+    const selectorBlock = `${item.selector.trim()} {`;
     const propertiesBlock = item.properties.map(prop => `    ${prop.trim()}`).join('\n');
     const closingBracket = '}';
     const mergeString = `${string}

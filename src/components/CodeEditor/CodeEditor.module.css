@@ -1,0 +1,7 @@
+.codeEditor :global(.margin),
+.codeEditor :global(.margin-view-overlays) {
+  background-color: #f0f0f0;
+}
+.codeEditor :global(.lines-content) {
+  padding-left: 4px;
+}

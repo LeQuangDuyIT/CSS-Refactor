@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import MonacoEditor from 'react-monaco-editor';
+import styles from './CodeEditor.module.css';
 
-const CodeEditor = ({ code = '', onCodeChange }) => {
+const CodeEditor = ({ title, code = '', onCodeChange }) => {
   const options = {
     autoIndent: 'full',
     contextmenu: true,
@@ -25,17 +26,24 @@ const CodeEditor = ({ code = '', onCodeChange }) => {
   };
 
   return (
-    <MonacoEditor
-      value={code}
-      onChange={onCodeChange}
-      height="full"
-      options={options}
-      // theme="hc-black"
-    />
+    <>
+      <div className="bg-primary py-1 px-2">
+        <h2 className="text-white">{title}</h2>
+      </div>
+      <MonacoEditor
+        value={code}
+        onChange={onCodeChange}
+        // height="full"
+        options={options}
+        // theme="hc-black"
+        className={styles.codeEditor}
+      />
+    </>
   );
 };
 
 CodeEditor.propTypes = {
+  title: PropTypes.string,
   code: PropTypes.string,
   onCodeChange: PropTypes.func
 };
